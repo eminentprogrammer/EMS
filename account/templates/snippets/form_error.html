@@ -1,0 +1,19 @@
+
+<!-- Error Message -->
+   {% for field in account_form %}
+        <h3>
+          {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+          {% endfor %}
+        </h3>
+    {% endfor %}
+    {% if account_form.non_field_errors %}
+      <div style="color: red">
+        <p>{{account_form.non_field_errors}}</p>
+      </div>
+    {% endif %}
+    <!--Success Message-->
+    {% if success_message %}
+      <h3 style="color:green; text-align: center;">{{success_message}}</h3>
+    {% endif  %}
+

@@ -1,0 +1,36 @@
+{% extends 'account/management/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block management %}
+<div class="col-6 col-md-7 d-none d-lg-block">
+  <img src=" {% static 'login/login.svg' %}" class="w-100">
+</div>
+
+<div class="col-10 col-md-5 mx-auto">
+  <div class="text-center">
+    <img src=" {% static 'login/login.svg' %}" class="w-50 d-md-none">
+    <h1 class="h4 mb-4 fw-bold">Register Account!!!</h1>
+  </div>
+
+  <form class="form" method="POST">{% csrf_token %}
+      {% include 'snippets/register_error.html' %} 
+      {{form | crispy }}     
+      <button class="btn btn-primary btn-primary btn-block" type="submit">Register <span><i class="fa fa-user" aria-hidden="true"></i></span></button>
+  </form>
+
+  <hr>
+  <div class="text-center">
+    <a class="fw-bold" href="{% url 'login' %}">Login Instead</a>
+  </div>
+
+</div>
+<script>
+  const ID = document.querySelector("#id_username");
+  const Email = document.querySelector("#id_email");
+
+  ID.addEventListener("keyup", e=>{
+    Email.value = ID.value + "@augustineuniversity.edu.ng";
+  })
+</script>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{title}} </title>
+
+    {% include 'snippets/styles.html' %}
+    <!-- For special styles-->
+
+    <style>
+        .body{
+            background-color: darkseagreen;
+        }
+        .md-10{
+            margin-top:10px;
+        }
+    </style>
+        {% block stylesheet %}{% endblock  %}
+</head>
+<body class="body mt-5">
+        {% include 'snippets/header.html' %}
+    
+    <div class="container">
+        <div class="row mt-5">
+            <div class="md-10 rounded container" id="contentBox">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    
+    <!--For Special scripts-->
+    {% block script %}{% endblock %}
+    
+    {% include 'snippets/footer.html' %}
+    {% include 'snippets/js.html' %}
+</body>
+</html>
+
+

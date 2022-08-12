@@ -1,0 +1,50 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+<!-- Main Content -->
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid mb-5">
+    <div class="row">
+        <!-- Area Chart -->
+        <div class="col-md-8 mx-auto">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 fw-bold text-primary fw-bold">Pending Aproval</h6>
+                </div>
+                 <!-- Card Body -->
+                 {% if list_of_exeats %}
+                 {% for content in list_of_exeats %}
+                 <div class="alert">
+                     <div class="row">
+                         <div class="col">
+                             <div class="dropdown-item d-flex align-items-center" href="#">
+                                 <div class="mr-3">
+                                     <div class="icon-circle bg-primary">
+                                         <i class="fas fa-file-alt text-white"></i>
+                                     </div>
+                                 </div>
+                                 <div>
+                                     <div class="small text-gray-500">{{content.date_submitted}}</div>
+                                     <span class="fw-bold small">
+                                         {{ content.reason }}
+                                     </span>
+                                 </div>
+                             </div>
+                         </div>
+                         {% if not user.is_student %}
+                            <div class="col-2 my-auto">
+                                <a href="{% url 'approve' content.id %}" class="btn btn-sm btn-primary small my-auto"> Approve </a>
+                            </div>
+                        {% endif %}
+                     </div>
+                 </div>
+                 {% endfor %}
+                 {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!-- Main Content -->

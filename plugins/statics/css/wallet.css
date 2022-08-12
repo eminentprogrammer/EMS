@@ -1,0 +1,24 @@
+
+.testcard-section{
+    display: block;
+    padding: 20px;
+}
+
+.test-card-2{
+    margin-top: -205px;
+    margin-left: 50px;
+}
+.test-card-3{
+    margin-top: -200px;
+    margin-left: 100px;
+}
+
+.animate-test-card-2{
+    margin-top: -205px;
+    margin-left: 25px;
+}
+
+.animate-test-card-3{
+    margin-top: -200px;
+    margin-left: 50px;
+}

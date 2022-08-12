@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    *{
+        transition: all 0.2 ease-in-out;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        body{
+            height: 100vh;
+            display: grid;
+            align-items: center;
+            background-image: url('/static/login/login.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            
+        }
+        .content{
+            background: rgba(108, 99, 255, 1);
+            overflow: hidden;
+            color: white;
+        }
+        .small {
+          color: rgba(255, 255, 255, 0.932);
+        }
+        .text-muted {
+          --bs-text-opacity: 1;
+          color: #fffffff1!important;
+        }
+    }
+</style>
+
+<div class="container">
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+      <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="card o-hidden border-0 content">
+          <div class="card-body mt-5">
+            <div class="row">
+                {% block management %}{% endblock %}
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

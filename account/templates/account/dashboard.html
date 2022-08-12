@@ -1,0 +1,66 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+<!-- Main Content -->
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid mt-n4">
+   <!-- Page Heading -->
+   <div class="d-sm-flex align-items-center justify-content-between mb-4 pt-5 align">
+      <h1 class="h3 mb-0 text-gray-800 fw-bold"></h1>
+      <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+         <i class="fas fa-download fa-sm text-white-50"></i>
+         Generate Report
+      </a>
+   </div>
+
+   <div class="row">
+      <!-- Area Chart -->
+      <div class="col-xl-8 col-lg-7 mx-auto">
+         <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+               {% if request.user.is_student %}
+               <h6 class="m-0 font-weight-bold text-primary">Latest Information</h6>
+               <div class="dropdown no-arrow">
+                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false">
+                     <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                     aria-labelledby="dropdownMenuLink">
+                     <div class="dropdown-header">Dropdown Header:</div>
+                     <a class="dropdown-item" href="#">Action</a>
+                  </div>
+               </div>
+               {% endif %}
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+               <div class="chart-area">
+                  <!-- Rules and Regulations Here -->
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</div>
+<!-- /.container-fluid -->
+{% endblock %}
+<!-- Main Content -->
+
+{% block extrascripts %}
+<!-- Bootstrap core JavaScript-->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+{% endblock %}

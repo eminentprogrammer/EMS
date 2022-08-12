@@ -1,0 +1,66 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+<!-- Main Content -->
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid mb-5">
+    <div class="row">
+        <!-- Area Chart -->
+        <div class="col-md-8 mx-auto">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 fw-bold text-primary fw-bold">Apply for an Exeat</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Rules and Regulations Here -->
+                        <form action="{% url 'exeatform' %}" class="form" method="POST">{% csrf_token %}
+                            {{ form.as_p }}
+                            <table class="table table-light table-bordered table-hover table-striped">
+                                <tbody>
+                                    <tr>
+                                        <div class="col mt-3">
+                                            <input type="text" name="title" id="id_title" class="form-control" placeholder="title">
+                                        </div>
+                                    </tr>
+                                    <tr style="margin-top: 30px;">
+                                        <div class="col mt-3">
+                                            <textarea class="form-control mb-3" rows="5" name="reason" placeholder="Reason(s) for applying for exeat ..."></textarea>
+                                        </div>
+                                    </tr>
+                                    <tr class="d-flex d-inline">
+                                        <div class="row">
+                                            <div class="col-3 my-auto">
+                                                <h6>Depart on</h6>
+                                            </div>
+                                            <div class="col">
+                                                <input type="date" name="leave_on" id="leave_on" class="form-control mb-3">
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="row">
+                                            <div class="col-3 my-auto">
+                                                <h6>Arrive on</h6>
+                                            </div>
+                                            <div class="col">
+                                                <input type="date" name="return_on" id="return_on" class="form-control mb-3">
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <button class="btn btn-md btn-danger border-0" type="submit">Apply</button>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+<!-- Main Content -->

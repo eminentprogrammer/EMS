@@ -1,0 +1,18 @@
+{% load static %}
+<div class="form-group row">
+    <div class="col-sm-12 mb-3 mb-sm-0">
+        {% for field in registration_form %}
+        <h3>
+            {% for error in field.errors %}
+            <h4 style="color: red">{{ error }}</h4>
+            {% endfor %}
+        </h3>
+        {% endfor %}
+
+        {% if registration_form.non_field_errors %}
+        <div style="color: green">
+            <h4>{{registration_form}}: {{registration_form.non_field_errors}}</h4>
+        </div>
+        {% endif %}
+    </div>
+</div>

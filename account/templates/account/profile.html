@@ -1,0 +1,30 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+  <!--Left side of the form-->
+  <div class="col-lg-6">
+    {% include 'snippets/biodata.html' %}
+  </div>
+  
+  <!--right side with the form-->
+  <div class="col-lg-6">
+    {% include 'snippets/form_error.html' %}
+    <form class=" form-group form-signin text-center" method="post">
+      {% csrf_token %}
+      <h1>{{request.user.lastname}} {{request.user.firstname}}</h1>
+      <input type="text" name="matric_id" id="inputmatric_id" class="form-control" placeholder="matric_id" value="{{account_form.initial.matric_id}}"readonly autofocus><br>      
+      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email Address" value="{{account_form.initial.email}}"readonly autofocus><br>      
+      <input type="tel" name="phone_number" id="inputPhoneNumber" class="form-control" placeholder="Phone Number" value="{{account_form.initial.phone_number }}"autofocus><br>
+      <button class="btn btn-lg bg-danger  btn-primary btn-block" type="submit">Update</button>
+    </form>
+  </div>
+
+</div>
+
+<div class="nav navbar d-flex flex-column" style="text-align: center;">
+  <a class="nav-link m-auto" href="{% url 'password_change' %}">Change password</a>
+</div>
+
+{% endblock content %}

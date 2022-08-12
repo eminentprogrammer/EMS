@@ -1,0 +1,54 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+  <!--Left side of the form-->
+  <div class="col-md-6 mx-auto">
+    <table class="table table-light table-bordered table-hover table-striped">
+      <tbody>
+          <div class="h3 text-center">Account Information</div>
+          <tr>
+              <th>Fullname:</th>
+              <td>{{request.user.lastname}} {{request.user.firstname}} </td>
+          </tr>
+          <tr>
+              <th>User ID:</th>
+              <td>{{request.user.username}} </td>
+          </tr>          
+          <tr>
+              <th>Email:</th>
+              <td class="email"> {{request.user.email}} </td>
+          </tr>
+          <tr>
+              <th>Phone number:</th>
+              <td type="tel">{{request.user.phone_number}} </td>
+          </tr>
+          {% if user.is_student %}
+          <tr>
+              <th>Parent Name:</th>
+              <td type="text">{{request.user.parent_name}} </td>
+          </tr>
+          <tr>
+              <th>Parent Email:</th>
+              <td type="tel" class="email">{{request.user.parent_email}} </td>
+          </tr>
+          <tr>
+              <th>Parent Phone number:</th>
+              <td type="tel">{{request.user.parent_phone_no}} </td>
+          </tr>
+          {% endif %}
+          <tr>
+              <th>Date joined:</th>
+              <td>{{request.user.date_joined}}</td>
+          </tr>
+      </tbody>
+  </table>  
+  </div>
+</div>
+
+<div class="nav navbar d-flex flex-column" style="text-align: center;">
+  <a class="nav-link m-auto" href="{% url 'password_change' %}">Change password</a>
+</div>
+
+{% endblock content %}

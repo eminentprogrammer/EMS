@@ -1,0 +1,56 @@
+{% extends 'account/management/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+{% block management %}
+<!--End of Login Image-->
+<!--Login Form-->
+<div class="col-lg-6 mt-5 mx-auto">
+  <div class="p-5">
+    <div class="text-center">
+      <img src=" {% static 'login/login.svg' %}" class="w-50">
+      <div class="h4 mb-4 fw-bold">Verify your email address</div><hr>
+      <p class="alert alert-info">An email containing your email verification pin has been sent to you</p>
+    </div>
+
+    <form class="form" method="post">
+      {% csrf_token %}
+      <div class="input-group">
+        <span class="input-group-addon p-2">
+          <i class="fa fa-key fa-fw" aria-hidden="true"></i>
+        </span>
+        <input type="text" name="verify-email" class="form-control textinput textInput rounded" placeholder="Pin" required="" id="id_verify-email">
+      </div>
+      
+      <!--Login Error Message-->
+      <div class="form-group mt-3 mb-4">
+        {% for field in login_form %}
+            <p>
+              {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+              {% endfor %}
+            </p>
+        {% endfor %}
+
+        {% if login_form.non_field_errors %}
+          <div style="color: red">
+            <p>{{login_form.non_field_errors}}</p>
+          </div>
+            
+        {% endif %}
+      </div>
+
+      <!--End of Login Error Message-->
+      <input class="btn btn-md btn-danger fw-bold border-0" type="submit" value="Verify">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-camera fa-stack-1x"></i>
+        <i class="fa fa-ban fa-stack-2x text-danger"></i>
+      </span>
+    </form>
+    <hr>
+  </div>
+</div>
+<!--End of Login Form-->
+{% endblock %}

@@ -1,0 +1,53 @@
+<style>
+td{
+    color: dodgerblue l;
+    text-transform: uppercase;
+}
+.email{
+    text-transform:lowercase;
+}
+
+</style>
+
+<table class="table table-light table-bordered table-hover table-striped">
+    <tbody>
+        <div class="h3 text-center">Account Information</div>
+        <tr>
+            <th>Fullname:</th>
+            <td>{{request.user.lastname}} {{request.user.firstname}} </td>
+        </tr>
+        <tr>
+            <th>Matric ID:</th>
+            <td>{{request.user.matric_id}} </td>
+        </tr>
+        <tr>
+            <th>Department:</th>
+            <td>{{request.user.department}} </td>
+        </tr>
+        
+        <tr>
+            <th>Student Email:</th>
+            <td class="email"> {{request.user.email}} </td>
+        </tr>
+        <tr>
+            <th>Student Contact:</th>
+            <td type="tel">{{request.user.phone_number}} </td>
+        </tr>
+        <tr>
+            <th>Parent Name:</th>
+            <td type="text">{{request.user.parent_name}} </td>
+        </tr>
+        <tr>
+            <th>Parent Email:</th>
+            <td type="tel" class="email">{{request.user.parent_email}} </td>
+        </tr>
+        <tr>
+            <th>Parent Contact:</th>
+            <td type="tel">{{request.user.parent_phone_no}} </td>
+        </tr>
+        <tr>
+            <th>Date joined:</th>
+            <td>{{request.user.date_joined}}</td>
+        </tr>
+    </tbody>
+</table>
